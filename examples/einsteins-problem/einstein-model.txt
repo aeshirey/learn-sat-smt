@@ -1,0 +1,58 @@
+sat
+(
+  (define-fun owns_fish () Int
+    4)
+  (define-fun natl_owns_fish () String
+    "german")
+  (define-fun brit ((x!0 Int)) Bool
+    (= x!0 3))
+  (define-fun bluemaster ((x!0 Int)) Bool
+    (= x!0 5))
+  (define-fun dunhill ((x!0 Int)) Bool
+    (= x!0 1))
+  (define-fun cat ((x!0 Int)) Bool
+    (= x!0 1))
+  (define-fun norwegian ((x!0 Int)) Bool
+    (= x!0 1))
+  (define-fun coffee ((x!0 Int)) Bool
+    (= x!0 4))
+  (define-fun bird ((x!0 Int)) Bool
+    (= x!0 3))
+  (define-fun milk ((x!0 Int)) Bool
+    (= x!0 3))
+  (define-fun tea ((x!0 Int)) Bool
+    (= x!0 2))
+  (define-fun blend ((x!0 Int)) Bool
+    (= x!0 2))
+  (define-fun dane ((x!0 Int)) Bool
+    (= x!0 2))
+  (define-fun yellow ((x!0 Int)) Bool
+    (= x!0 1))
+  (define-fun german ((x!0 Int)) Bool
+    (= x!0 4))
+  (define-fun green ((x!0 Int)) Bool
+    (= x!0 4))
+  (define-fun horse ((x!0 Int)) Bool
+    (= x!0 2))
+  (define-fun dog ((x!0 Int)) Bool
+    (= x!0 5))
+  (define-fun prince ((x!0 Int)) Bool
+    (= x!0 4))
+  (define-fun fish ((x!0 Int)) Bool
+    (= x!0 4))
+  (define-fun beer ((x!0 Int)) Bool
+    (= x!0 5))
+  (define-fun pallmall ((x!0 Int)) Bool
+    (= x!0 3))
+  (define-fun red ((x!0 Int)) Bool
+    (= x!0 3))
+  (define-fun swede ((x!0 Int)) Bool
+    (= x!0 5))
+  (define-fun blue ((x!0 Int)) Bool
+    (= x!0 2))
+  (define-fun white ((x!0 Int)) Bool
+    (= x!0 5))
+  (define-fun water ((x!0 Int)) Bool
+    (= x!0 1))
+)
+"german"

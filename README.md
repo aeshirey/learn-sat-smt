@@ -26,11 +26,11 @@ is_arguing = contrary_position and series_of_statements and not no_it_isnt
 As boolean algebra, these would be written with logical notation as:
 
 $$
-can\_drive\_car = has\_license \vee (age \ge 15 \wedge has\_learners\_permit)
+can\\_drive\\_car = has\\_license \vee (age \ge 15 \wedge has\\_learners\\_permit)
 $$
 
 $$
-is\_arguing = contrary\_position \wedge series\_of\_statements \wedge \neg no\_it\_isnt
+is\\_arguing = contrary\\_position \wedge series\\_of\\_statements \wedge \neg no\\_it\\_isnt
 $$
 
 ## What is SAT?
@@ -39,7 +39,7 @@ $$
 For example, if we want to satisfy the second example above (`is_arguing==True`), we can do so with the following values:
 
 * `contrary_position == True`
-* `series_of_statements == False`
+* `series_of_statements == True`
 * `no_it_isnt == False`
 
 This expression is _satisfiable_ (or just _sat_). But what if we _also_ had set `series_of_statements=False`? In that case, we cannot satisfy `is_arguing`; it is _unsatisfiable_, or _unsat_ because there is no combination of values that satisfy the desired final state of `is_arguing==True`.

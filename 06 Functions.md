@@ -1,4 +1,4 @@
-## Functions
+# Functions
 A function in SMT-LIB can be defined or declared. `define-fun` contains the function's term (ie, the body of the function), such as this simple implementation of integer modulo plus an example of its use:
 
 ```
@@ -62,3 +62,7 @@ int item_counts(int x0)
 ```
 
 Declaring functions in this way provides a good way to abstract collections of items: in the above example, `item_counts` is a unary function that accepts an Int sort and returns an Int sort, but we can think of it like an `int[]` array.
+
+---
+
+This use of functions can help cleanly describe the constraints on the next example: [writing a Sudoku solver](/07%20Example%3A%20Sudoku.md).

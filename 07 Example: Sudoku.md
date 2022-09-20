@@ -90,7 +90,10 @@ Finally, with a concrete set of given values, we can restrict the solution to ju
 
 ![puzzle](/resources/sudoku_blank.png)
 
-A full SMT-LIB implementation (comprising 432 boolean assertions) [can be found here](/07%20sudoku.smt2), and the equivalent Python implementation is reproduced here:
+A full SMT-LIB implementation (comprising 432 boolean assertions) [can be found here](/07%20sudoku.smt2).
+
+## Python implementation
+The equivalent Python implementation -- with helpful output display -- is reproduced here:
 
 ```python
 from z3 import *
@@ -166,3 +169,6 @@ for r in range(1, 10):
     if r in [3,6]: print('---+---+---')
 ```
 
+---
+
+For the next example, we'll work on an NP-Complete problem that is conceptually simple in SMT: the [rectangle packing problem](/08%20Example%3A%20Rectangle%20Packing.md).

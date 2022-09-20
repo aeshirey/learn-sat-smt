@@ -1,4 +1,4 @@
-## Constants and Sorts
+# Constants and Sorts
 What we call "variables" in most programming languages, SMT-LIB calls "constants". These constants are each of a particular type, called a "sort". The "Int sort", for example, is defined in the SMT-LIB Standard:
 
 > The set of values for the Int sort consists of all numerals and all terms of the form (- n) where n is a numeral other than 0.
@@ -29,4 +29,5 @@ x, y = Reals('x y')
 
 These declarations -- in SMT-LIB or Python -- specify the constant name and sort, but their values are (currently) unrestricted: we haven't imposed any constraints on what values of `a` will satisfy our model. We can do this with some assertions.
 
-[Assert expressions](/03%20Assert.md)
+---
+Knowing how to create constants, we can next use [assert expressions](/03%20Assert.md) to constrain them.

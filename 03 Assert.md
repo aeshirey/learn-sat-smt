@@ -1,4 +1,4 @@
-## `assert` expression
+# `assert` expression
 
 The `assert` unary s-expression accepts a Bool sort and is how SAT and SMT propositions are used to constrain your solution. For example, if you want to find a value $ a \mid a \gt 10 \wedge a \lt 5 $, you could provide the assertions:
 
@@ -20,3 +20,7 @@ s = Solver()
 s.add(a > 10, a < 5)
 assert(unsat == s.check())
 ```
+
+---
+
+With this in mind, let's try a simple example: [is this number prime?](/04%20Example%3A%20Prime%20check.md).

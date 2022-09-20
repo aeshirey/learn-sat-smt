@@ -1,4 +1,4 @@
-## Example: Is _n_ prime?
+# Example: Is _n_ prime?
 Let's try to do something useful: determine whether the number 117 is prime. If it's composite, then there should be two factors $ i,j \mid i*j = 117 $. Thus, we will know that 117 is prime if it is unsatisfiable to find any two values of `i` and `j`:
 
 ```
@@ -74,3 +74,7 @@ s.add(
 assert(sat == s.check())
 s.model() # [j = 39, i = 3]
 ```
+
+---
+
+Another example that might seem daunting but is quite easy is [the XKCD 'NP-Complete' problem](/05%20Example%3A%20NP-Complete.md).

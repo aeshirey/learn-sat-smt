@@ -1,4 +1,4 @@
-## s-expr declarations
+# s-expr declarations
 SMT logic is specified in the [SMT-LIB language](http://smtlib.cs.uiowa.edu/language.shtml) as a series of s-expressions. Here are some examples that you can enter interactively with `z3 -in`:
 
 ```

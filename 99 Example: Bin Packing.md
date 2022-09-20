@@ -1,0 +1,1 @@
+[Bin-packing](https://en.wikipedia.org/wiki/Bin_packing_problem) is an NP-Hard problem of optimizing 

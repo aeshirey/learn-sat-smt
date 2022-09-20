@@ -1,4 +1,4 @@
-## Example: XKCD's NP-Complete
+# Example: XKCD's NP-Complete
 
 ![My Hobby: embedding np-complete problems in restaurant orders](https://imgs.xkcd.com/comics/np_complete.png)
 
@@ -79,8 +79,7 @@ Note that there exists another solution:
 )
 ```
 
-<details>
-<summary>Python implementation</summary>
+## Python implementation
 
 This Python implementation requires the use of the `ToReal` function to ensure the primary assertion uses Real sorts instead of downcasting to an Int sort.
 
@@ -109,4 +108,7 @@ s.model() # [sampler_plate = 0,
           #  hot_wings = 0,
           #  mixed_fruit = 7]
 ```
-</details>
+
+---
+
+With a few basic examples under our belt, let's turn next to [Functions in SMT-LIB](/06%20Functions.md).

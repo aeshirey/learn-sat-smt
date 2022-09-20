@@ -11,4 +11,6 @@ The Arity column shows the numeric arity and the signature in `(argument-sorts) 
 | `implies`     | 2, (Bool Bool) Bool | `(implies rain umbrella)` | |
 | `iff`         | 2, (Bool Bool) Bool  | `(iff )` | Bidirectional implication; `iff` holds true only when both arguments are the same |
 | `ite`         | 3, (Bool S S) S  | `(ite big 300 20)` | If-then-else; returns the first `S` value if the boolean holds, or the second value otherwise.
+| `distinct` | n | `(distinct x y z)` | All arguments are distinct from one another |
+
 

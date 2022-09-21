@@ -1,4 +1,4 @@
-## SMT-LIB Reference
+# SMT-LIB Reference
 
 Below is an incomplete list of expressions you may need along with their arity/signature, an example, and possible notes.
 
@@ -14,3 +14,10 @@ The Arity column shows the numeric arity and the signature in `(argument-sorts) 
 | `distinct` | n | `(distinct x y z)` | All arguments are distinct from one another |
 | `forall` | 2, (List of Sorts, Bool) | | Represents universal quantifier, $ \forall $ |
 
+---
+
+# Additional Resources
+* [SMT-LIB Language Standard](http://smtlib.cs.uiowa.edu/language.shtml)
+* [Z3 API in Python](https://ericpony.github.io/z3py-tutorial/guide-examples.htm) ([project page on GitHub](https://github.com/ericpony/z3py-tutorial)) - a backup of the now-offline official Z3Py webpage
+* [Getting Started with Z3: A Guide](https://www.philipzucker.com/z3-rise4fun/guide.html)
+* [SMT-LIB: a Brief Tutorial](https://link.springer.com/content/pdf/bbm:978-3-662-50497-0/1.pdf) [pdf]

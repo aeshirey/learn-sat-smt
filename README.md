@@ -34,7 +34,7 @@ is\\_arguing = contrary\\_position \wedge series\\_of\\_statements \wedge \neg n
 $$
 
 ## What is SAT?
-`SAT` is short for [Boolean SATisfiability problem](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem) -- "determining if there exists an interpretation that satisfies a given Boolean formula". In other words, given a number of related true/false statements, SAT determines if it's possible to satisfy the combination of those statements, and if so, how.
+`SAT` is short for [Boolean SATisfiability problem](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem) -- "determining if there exists an interpretation that satisfies a given Boolean formula". In other words, given a number of connected true/false statements, SAT determines if it's possible to satisfy the combination of those statements, and if so, how.
 
 For example, if we want to satisfy the second example above (`is_arguing==True`), we can do so with the following values:
 
@@ -44,7 +44,7 @@ For example, if we want to satisfy the second example above (`is_arguing==True`)
 
 This expression is _satisfiable_ (or just _sat_). But what if we _also_ had set `series_of_statements=False`? In that case, we cannot satisfy `is_arguing`; it is _unsatisfiable_, or _unsat_ because there is no combination of values that satisfy the desired final state of `is_arguing==True`.
 
-There's power in identifying both _sat_ and _unsat_ situations: a model that returns _sat_ can return concrete inputs that may provide useful. On the other hand, an _unsat_ proves the non-existence of a solution; this might be useful in identifying that only a certain set of inputs will satisfy the constraints, after which no more solutions are possible.
+There's power in identifying both _sat_ and _unsat_ situations: a model that returns _sat_ can return concrete inputs that may be useful. On the other hand, an _unsat_ proves the non-existence of a solution; this might be useful in identifying that only a certain set of inputs will satisfy the constraints, after which no more solutions are possible.
 
 
 ## What is SMT?
@@ -86,5 +86,7 @@ Or, more simply:
 
     or (not p)
        (and p q)
+
+---
 
 With this basic info established, let's move on to [basic s-expressions](/01%20Basic%20s-exprs.md).

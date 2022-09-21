@@ -1,5 +1,5 @@
 # Example: Is _n_ prime?
-Let's try to do something useful: determine whether the number 117 is prime. If it's composite, then there should be two factors $ i,j \mid i*j = 117 $. Thus, we will know that 117 is prime if it is unsatisfiable to find any two values of `i` and `j`:
+Let's try to do something useful: determine whether the number 117 is prime. If it's composite, then there should be two factors $i,j \mid i*j = 117$. Thus, we will know that 117 is prime if it is unsatisfiable to find any two values of `i` and `j`:
 
 ```
 (declare-const i Int)
@@ -38,7 +38,7 @@ sat
 )
 ```
 
-This looks better. What if we wanted to check for another solution? we know that $ 39*3=117 $, but are there any other factors we might use?
+This looks better. What if we wanted to check for another solution? we know that $39*3=117$, but are there any other factors we might use?
 
 We can simply add in additional constraints that preclude this set of values. Here, we'll add in a single assertion against these two values:
 

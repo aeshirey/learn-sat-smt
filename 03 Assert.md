@@ -1,6 +1,6 @@
 # `assert` expression
 
-The `assert` unary s-expression accepts a Bool sort and is how SAT and SMT propositions are used to constrain your solution. For example, if you want to find a value $ a \mid a \gt 10 \wedge a \lt 5 $, you could provide the assertions:
+The `assert` unary s-expression accepts a Bool sort and is how SAT and SMT propositions are used to constrain your solution. For example, if you want to find a value $a \mid a \gt 10 \wedge a \lt 5$, you could provide the assertions:
 
 ```
 (declare-const a Int)

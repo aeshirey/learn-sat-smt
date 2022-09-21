@@ -21,7 +21,7 @@ sat
 )
 ```
 
-What if we want SMT to find some number, $ n > 10000 $, such that _n_ is prime? Clearly, declaring a new constant and asserting that $ n \ne i*j $ won't work:
+What if we want SMT to find some number, $n > 10000$, such that _n_ is prime? Clearly, declaring a new constant and asserting that $n \ne i*j$ won't work:
 
 ```
 (declare-const i Int)

@@ -21,7 +21,7 @@ sat
 )
 ```
 
-What if we want SMT to find some number, $n > 10000$, such that _n_ is prime? Clearly, declaring a new constant and asserting that $n \ne i*j$ won't work:
+What if we want SMT to find some number, $n > 5$, such that _n_ is prime? Clearly, declaring a new constant and asserting that $n \ne i*j$ won't work:
 
 ```
 (declare-const i Int)
@@ -30,18 +30,19 @@ What if we want SMT to find some number, $n > 10000$, such that _n_ is prime? Cl
 (assert (> i 1))
 (assert (> j 1))
 (assert (not (= n (* i j))))
+(assert (> n 5))
 
 (check-sat)
 sat
 
 (get-model)
 (
-  (define-fun n () Int
-    5)
   (define-fun i () Int
-    2)
+    10)
+  (define-fun n () Int
+    6)
   (define-fun j () Int
-    2)
+    16)
 )
 ```
 
@@ -51,20 +52,20 @@ $$
 n \in \mathbb{Z} \mid \forall i \in \mathbb{Z^{2+}}, \forall j \in \mathbb{Z^{2+}}, n \ne i*j
 $$
 
-That is to say, find some _n_ in the set of (non-negative) integers such that for all values of _i_ and _i_ greater than or equal to two, _n_ is not a product of _i_ and _j_.
+That is to say, find some _n_ in the set of (non-negative) integers such that for all values of _i_ and _j_ greater than or equal to two, _n_ is not a product of _i_ and _j_.
 
-This definition can be translated into SMT-LIB code using the `forall` expression, which is given "a non-empty list of variables, which abbreviates a sequential nesting
-of quantifiers". Or, given some list of variables over which `forall` operates, we can apply some assertions:
+This definition can be translated into SMT-LIB code using the `forall` expression, which is given "a non-empty list of variables, which abbreviates a sequential nesting of quantifiers". Or, given some list of variables over which `forall` operates, we can apply some assertions:
+
 
 ```
 (declare-const n Int)
-(assert (> n 10000))
+(assert (> n 5))
 
 (assert (forall ((i Int) (j Int))
-        (or (<= 2 i)
-            (<= 2 j)
-            (> n i)
-            (> n j)
+        (or (< i 2)
+            (< j 2)
+            (< n i)
+            (< n j)
             (not (= n (* i j))))))
 (check-sat)
 sat
@@ -72,20 +73,33 @@ sat
 (get-model)
 (
   (define-fun n () Int
-    10001)
+    7)
 )
 ```
 
-Note that we're restricting _i_ and _j_ to be `>= 2` and `< n`. These constraints are definitional: as potential factors of _n_, they must be greater than one and may not exceed _n_. They are also practical, though: restricting the domain of _i_ and _j_ allows Z3 to more efficiently reason about what _n_ is, given that it is greater than the (potential) factors _i_ and _j_. Indeed, omitting the `(> n i)` and `(> n i)` assertions prevents Z3 from being able to check satisfiability:
+The `forall` expression reasons about all possible combinations of integer values _i_ and _j_ and requires that for every pair, either:
+* _i_ or _j_ is less than 2, meaning they can't possibly be prime factors of _n_, or
+* _i_ or _j_ is greater than _n_, similarly not prime factors by definition, or
+* the product of _i_ and _j_ doesn't equal _n_
+
+We can scale this up to, say, $n > 10000$:
 
 ```
 (declare-const n Int)
 (assert (> n 10000))
 
 (assert (forall ((i Int) (j Int))
-        (or (<= 2 i)
-            (<= 2 j)
+        (or (< i 2)
+            (< j 2)
+            (< n i)
+            (< n j)
             (not (= n (* i j))))))
 (check-sat)
-unknown
+sat
+
+(get-model)
+(
+  (define-fun n () Int
+    10007)
+)
 ```

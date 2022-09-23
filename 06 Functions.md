@@ -9,7 +9,7 @@ A function in SMT-LIB can be defined or declared. `define-fun` contains the func
 (assert (= three (% 7 4)))
 ```
 
-This creates a function that has a predefined logic to it: we calculate the `%` of two Int sorts as being $a - b * (a/b)$ (with integer division being performed with `div`).
+This creates a function that has a predefined logic to it: we calculate the `%` of two Int sorts as being $a - b * \lfloor {a \over b} \rfloor$ (with integer division being performed with `div`).
 
 A `declare-fun` expression omits the term and is used with assertions and arguments:
 

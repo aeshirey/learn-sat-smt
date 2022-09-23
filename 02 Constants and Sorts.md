@@ -30,4 +30,4 @@ x, y = Reals('x y')
 These declarations -- in SMT-LIB or Python -- specify the constant name and sort, but their values are (currently) unrestricted: we haven't imposed any constraints on what values of `a` will satisfy our model. We can do this with some assertions.
 
 ---
-Knowing how to create constants, we can next use [assert expressions](/03%20Assert.md) to constrain them.
+Knowing how to create constants, we can next use [assert expressions](/03%20assert.md) to constrain them.

@@ -1,12 +1,12 @@
 # Learn SAT/SMT
-_This is a work-in-progress!_
+_This is a work-in-progress! I am quite new to this topic, so if I make gross errors, please [create an issue](https://github.com/aeshirey/learn-sat-smt/issues/new), submit a pull request fixing it, or drop me a line._
 
 ## About this document
 Many of the videos I've seen and documents I've read when trying to learn SAT/SMT are far too in-depth to help newbies, so I started this to organize my own thoughts, to learn more about SAT/SMT, and to be an aid to others in the same.
 
 This document is intended to be introductory yet detailed enough for individuals wanting to learn practical SAT/SMT. It is not exhaustive in its use of [different logics](http://smtlib.cs.uiowa.edu/logics.shtml), [solvers](http://smtlib.cs.uiowa.edu/solvers.shtml), use cases, s-expressions, and so on.
 
-For the sake of not getting caught in the weeds, I may be incomplete in definitions or distinctions. I generally use the term `SMT` to cover both it and `SAT`. I also am fairly new to this topic, so if I make gross errors, please create an issue, submit a pull request fixing it, or drop me a line.
+For the sake of not getting caught in the weeds, I may be incomplete in definitions or distinctions. I generally use the term `SMT` to cover both it and `SAT`.
 
 My intent is to make this document accessible to most software developers in the language and examples I use. I use [Z3](https://github.com/Z3Prover/z3) by Microsoft Research, though I expect any reasonable SAT solver can be substituted. SAT/SMT examples will use either s-expressions directly or the [Python API for Z3](https://pypi.org/project/z3-solver/).
 
@@ -34,7 +34,7 @@ is\\_arguing = contrary\\_position \wedge series\\_of\\_statements \wedge \neg n
 $$
 
 ## What is SAT?
-`SAT` is short for [Boolean SATisfiability problem](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem) -- "determining if there exists an interpretation that satisfies a given Boolean formula". In other words, given a number of connected true/false statements, SAT determines if it's possible to satisfy the combination of those statements, and if so, how.
+`SAT` is short for [Boolean SATisfiability problem](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem) -- "determining if there exists an interpretation that satisfies a given Boolean formula". In other words, given a number of connected true/false statements, SAT determines _if_ it's possible to satisfy the combination of those statements, and if so, _how_.
 
 For example, if we want to satisfy the second example above (`is_arguing==True`), we can do so with the following values:
 
@@ -42,7 +42,7 @@ For example, if we want to satisfy the second example above (`is_arguing==True`)
 * `series_of_statements == True`
 * `no_it_isnt == False`
 
-This expression is _satisfiable_ (or just _sat_). But what if we _also_ had set `series_of_statements=False`? In that case, we cannot satisfy `is_arguing`; it is _unsatisfiable_, or _unsat_ because there is no combination of values that satisfy the desired final state of `is_arguing==True`.
+This expression is _satisfiable_ (or just _sat_). But what if we _also_ had required `series_of_statements=False`? In that case, we cannot satisfy `is_arguing`; it is _unsatisfiable_, or _unsat_ because there is no combination of values that satisfy the desired final state of `is_arguing==True`. Specifically, the set of propositions would have included both `series_of_statements=True` ($series\\_of\\_statements$) and `series_of_statements=False` ($\neg series\\_of\\_statements$), which contradict each other.
 
 There's power in identifying both _sat_ and _unsat_ situations: a model that returns _sat_ can return concrete inputs that may be useful. On the other hand, an _unsat_ proves the non-existence of a solution; this might be useful in identifying that only a certain set of inputs will satisfy the constraints, after which no more solutions are possible.
 
@@ -67,7 +67,7 @@ _Note: This section gives some detail on how SAT works under the hood - notably,
 
 SMT is encoded as a set of _[s-expressions](https://en.wikipedia.org/wiki/S-expression)_ (or s-exprs). These s-exprs are then passed to a _solver_ to process them. Internally, the solver will parse the s-expr text; normalize them all to _[conjunctive normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)_ (for SAT); simplify the internal representation; and find values that satisfy the constraints, if possible, or return _unsat_.
 
-Conjunctive normal form (CNF) is a standardized notation for boolean expressions, comprising only `and`, `or`, and `not` operators. The normalization is that CNF is a _conjunction_ (boolean `and`, also written as $ \wedge $) of a series of _disjunctive_ (boolean `or`, written as $ \vee $) expressions. Consider the `implies` logicial proposition $p \implies q$ (read "p implies q"), which means "if p is true, then q is true". But if p is false, there is no requirement on q for the implication to hold. This can be represented with the [truth table](https://en.wikipedia.org/wiki/Truth_table):
+Conjunctive normal form (CNF) is a standardized notation for boolean expressions, comprising only `and`, `or`, and `not` operators. The normalization is that CNF is a _conjunction_ (boolean `and`, also written as $\wedge$) of a series of _disjunctive_ (boolean `or`, written as $\vee$) expressions. Consider the `implies` logicial proposition $p \implies q$ (read "p implies q"), which means "if p is true, then q is true". But if p is false, there is no requirement on q for the implication to hold. This can be represented with the [truth table](https://en.wikipedia.org/wiki/Truth_table):
 
 | $p$ | $q$ | $p \implies q$ |
 |-----|-----|----------------|

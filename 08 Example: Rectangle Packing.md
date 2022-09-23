@@ -108,4 +108,4 @@ The full Python code is available [here](/08%20rectangle-packing.py).
 
 ---
 
-Next, let's explore a derivation of prime checks by [generating a prime value using `forall`](/09%20Forall.md).
+Next, let's explore a derivation of prime checks by [generating a prime value using `forall`](/09%20forall.md).

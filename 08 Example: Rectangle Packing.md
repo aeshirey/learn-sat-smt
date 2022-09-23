@@ -65,14 +65,19 @@ for (b0, (w0, h0)) in enumerate(boxes[:-1]):
             Y(b0+1) + h0 < Y(b1+1), # b0 is above b1
             Y(b1+1) + h1 < Y(b0+1), # b1 is above b0
             ))
+
+s.check()
 ```
 
 Perhaps surprisingly, this is all we need. Checking satisfiability on this input, however, is exceptionally intense: on my desktop running [WSL2](https://devblogs.microsoft.com/commandline/announcing-wsl-2/), Z3 returns `sat` after 9hr24min.
+
+Note, however, that for different inputs (depending on the initial configuration including the random seed), it may not be possible to fit the randomly-generated boxes in the specified container. Therefore, if you change the configuration, `s.check()` may return `sat` or `unsat`.
 
 ## Interacting with the model
 With the model, `m`, generated from `s.model()`, you can easily interact with it by calling the `m.eval()` function, passing in the Z3 constant. For example, to get the (x,y) coordinates of box7:
 
 ```python
+m = s.model()
 x = m.eval(X(7))
 y = m.eval(Y(7))
 ```

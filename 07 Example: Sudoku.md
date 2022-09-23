@@ -30,7 +30,7 @@ For clarity, the latter approach is better.
 ## Overall constraints
 How might the game rules be encoded as s-expressions?
 
-**There are 81 cells in a 9x9 square** can be implicit by the values passed to the function.
+**There are 81 cells in a 9x9 square** can be implicit by the values passed to the function. We'll only call the `cell` function with valid inputs.
 
 **Each square holds a value 1-9** requires that every cell be constrained to be `>= 1` and `<= 9`.
 
@@ -63,7 +63,7 @@ How might the game rules be encoded as s-expressions?
 ; etc
 ```
 
-This can be done fairly easily with the Python API or even just outputting SMT-LIB code directly. Writing the SMT-LIB code ourselves, fortunately there's the `distinct` function that can be used:
+This can be done fairly easily with the Python API or even programmatically generating SMT-LIB code. But as we're writing the SMT-LIB code ourselves, there's the `distinct` function that can be used:
 
 ```
 ; Values in row 1 must be distinct
@@ -76,7 +76,7 @@ This can be done fairly easily with the Python API or even just outputting SMT-L
                   (cell 1 7)
                   (cell 1 8)
                   (cell 1 9)))
-; Values in row 1 must be distinct
+; Values in row 2 must be distinct
 ; (similar to above)
 ```
 

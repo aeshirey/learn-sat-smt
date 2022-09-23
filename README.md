@@ -42,7 +42,7 @@ For example, if we want to satisfy the second example above (`is_arguing==True`)
 * `series_of_statements == True`
 * `no_it_isnt == False`
 
-This expression is _satisfiable_ (or just _sat_). But what if we _also_ had required `series_of_statements=False`? In that case, we cannot satisfy `is_arguing`; it is _unsatisfiable_, or _unsat_ because there is no combination of values that satisfy the desired final state of `is_arguing==True`. Specifically, the set of propositions would have included both `series_of_statements=True` ($series\\_of\\_statements$) and `series_of_statements=False` ($\neg series\\_of\\_statements$), which contradict each other.
+This expression is _satisfiable_ (or just _sat_). But what if we _also_ had required `series_of_statements=False`? In that case, we cannot satisfy `is_arguing`; it is _unsatisfiable_, or _unsat_ because there is no combination of values that satisfy the desired final state of `is_arguing==True`. Specifically, the set of propositions would have included both `series_of_statements=True` and `series_of_statements=False`, which contradict each other.
 
 There's power in identifying both _sat_ and _unsat_ situations: a model that returns _sat_ can return concrete inputs that may be useful. On the other hand, an _unsat_ proves the non-existence of a solution; this might be useful in identifying that only a certain set of inputs will satisfy the constraints, after which no more solutions are possible.
 

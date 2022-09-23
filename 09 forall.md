@@ -103,3 +103,7 @@ sat
     10007)
 )
 ```
+
+---
+
+For the next step, let's move from satisfying constraints to [optimizing them](/10%20Optimization.md). (This is apparently [limited to Z3 and is not in the SMT-LIB spec](https://stackoverflow.com/questions/71551539/when-will-the-smt-lib-standard-be-extended-to-include-optimization).)

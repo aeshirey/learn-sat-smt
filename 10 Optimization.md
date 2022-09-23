@@ -19,8 +19,8 @@ $$
 $$
 
 With the added constraints that:
-* tankers >= trailers
-* trailers >= 0
+* tankers >= trailers (every trailer must be pulled by a tanker, but not every tanker needs to pull a trailer)
+* trailers >= 0 (we can't have negative trailers)
 
 By now, this should be easy to encode in s-expressions:
 ```
@@ -91,3 +91,7 @@ assert sat == o.check()
 o.model() # [tankers = 27, trailers = 16]
 h.value() # 27
 ```
+
+---
+
+Next: Z3 also offers the ability to apply [soft constraints](/11%20assert-soft.md).

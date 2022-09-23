@@ -75,4 +75,5 @@ sat
     0)
   (define-fun i () Int
     (- 1))
-)```
+)
+```

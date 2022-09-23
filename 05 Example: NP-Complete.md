@@ -6,12 +6,12 @@ Mathematically, this problem is asking for:
 
 $$
 15.05 =
-2.15 * Count_{mixed fruit} 
-+ 2.75 * Count_{french fries}
-+ 3.35 * Count_{side salad} 
-+ 3.55 * Count_{hot wings} 
-+ 4.20 * Count_{mozzarella sticks} 
-+ 5.80 * Count_{sampler plate} 
+	2.15 * Count_{mixed fruit} 
+	+ 2.75 * Count_{french fries}
+	+ 3.35 * Count_{side salad} 
+	+ 3.55 * Count_{hot wings} 
+	+ 4.20 * Count_{mozzarella sticks} 
+	+ 5.80 * Count_{sampler plate} 
 $$
 
 If we declare a constant Int for each of these, constrained that the values must be non-negative and that this equation holds, it should work:
@@ -43,6 +43,7 @@ If we declare a constant Int for each of these, constrained that the values must
 
 (check-sat)
 sat
+
 (get-model)
 (
   (define-fun sampler_plate () Int
@@ -91,7 +92,7 @@ sampler, mozzarella, fries, salad, wings, fruit = \
 s = Solver()
 
 for item in [sampler, mozzarella, fries, salad, wings, fruit]:
-	s.add(item >= 0.0)
+	s.add(item >= 0)
 
 s.add(15.05 == 2.15 * ToReal(fruit)     
              + 2.75 * ToReal(fries)     
@@ -100,7 +101,8 @@ s.add(15.05 == 2.15 * ToReal(fruit)
              + 4.20 * ToReal(mozzarella)
              + 5.80 * ToReal(sampler))
 
-assert(sat == s.check())
+assert sat == s.check()
+
 s.model() # [sampler_plate = 0,
           #  mozzarella_sticks = 0,
           #  french_fries = 0,

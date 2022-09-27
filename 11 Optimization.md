@@ -94,4 +94,4 @@ h.value() # 27
 
 ---
 
-Let's now revisit rectangle packing, applying SMT optimizations to solve [bin packing](/12%20bin-packing.py).
+Let's now revisit rectangle packing, applying SMT optimizations to solve [bin packing](/12%20Example:%20Bin%20Packing.md).

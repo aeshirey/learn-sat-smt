@@ -106,4 +106,4 @@ sat
 
 ---
 
-For the next step, let's move from satisfying constraints to [optimizing them](/10%20Optimization.md). (This is apparently [limited to Z3 and is not in the SMT-LIB spec](https://stackoverflow.com/questions/71551539/when-will-the-smt-lib-standard-be-extended-to-include-optimization).)
+Z3 allows us to weight assertions, allowing flexibility in what constraints are satisfied, called [soft assertions](/10%20assert-soft.md).

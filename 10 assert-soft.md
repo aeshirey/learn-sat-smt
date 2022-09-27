@@ -9,7 +9,7 @@ Or with a positive natural number, such as:
 
 ```
 (assert-soft (not p) :weight 3)
-(assert-soft qp      :weight 1.5)
+(assert-soft q       :weight 1.5)
 ```
 
 ## Order of assertions
@@ -21,6 +21,7 @@ The soft assertions could be considered 'preferences' for the solution. Here's a
 
 (assert-soft (< i j))
 (assert-soft (< j i))
+
 (check-sat)
 sat
 
@@ -33,7 +34,7 @@ sat
 )
 ```
 
-We've declared that we want both $i<j$ and $j<i$ -- two mutually-exclusive propositions, which with an `assert` would have returned _unsat_. But it works fine here, as the first proposition was satisfied.
+We've declared that we want both $i < j$ and $j < i$ -- two mutually-exclusive propositions, which with an `assert` would have returned _unsat_. But it works fine here, as the first proposition was satisfied.
 
 Note what happens if the ordering is switched:
 
@@ -43,6 +44,7 @@ Note what happens if the ordering is switched:
 
 (assert-soft (< j i))
 (assert-soft (< i j))
+
 (check-sat)
 sat
 
@@ -55,7 +57,7 @@ sat
 )
 ```
 
-Now, we instead get $j<i$ satisfied and not $i<j$. The order of the assertions matters.
+Now, we instead get $j < i$ satisfied and not $i < j$. The order of the assertions matters.
 
 ## Weights
 `assert-soft` can take a `:weight n` value, a positive real value that indicates how strongly the soft assertion should be considered. All other things being equal, soft assertions with larger `weight` values are more likely to be met than are those with smaller values.
@@ -66,6 +68,7 @@ Now, we instead get $j<i$ satisfied and not $i<j$. The order of the assertions m
 
 (assert-soft (< j i) :weight 1)
 (assert-soft (< i j) :weight 1.1)
+
 (check-sat)
 sat
 

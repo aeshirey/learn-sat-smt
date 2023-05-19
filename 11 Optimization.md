@@ -15,7 +15,7 @@ This example comes from [Modeling of Optimization Problems using an SMT solver](
 This equation for this word problem is:
 
 $$
-100000 = 2400*tankers + 2200*trailers
+100000 = 2400 * tankers + 2200 * trailers
 $$
 
 With the added constraints that:

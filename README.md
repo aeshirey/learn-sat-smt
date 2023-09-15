@@ -82,7 +82,7 @@ $p \implies q$ can thus be normalized to CNF:
        (and (not p) q)
        (and p q)
 
-Or, more simply:
+From here, the solver will simplify the list of CNF propositions. Note that these first two, $\neg p \wedge \neg q$ and $\neg p \wedge q$, have $\neg p\$ in common and cover all (both) values of $q$. That means $q$ and $\neg q$ terms can be dropped and the two disjunctions reduced, leaving us with simply: 
 
     or (not p)
        (and p q)

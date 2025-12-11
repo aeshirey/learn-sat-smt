@@ -5,7 +5,7 @@ The `assert` unary s-expression accepts a Bool sort and is how SAT and SMT propo
 ```
 (declare-const a Int)
 (assert (> a 10))
-(assert (< a 5>))
+(assert (< a 5))
 (check-sat) ; unsat
 ```
 
@@ -22,5 +22,6 @@ assert(unsat == s.check())
 ```
 
 ---
+
 
 With this in mind, let's try a simple example: [is this number prime?](/04%20Example%3A%20Prime%20check.md).
